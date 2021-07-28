@@ -5,7 +5,7 @@ server = function(input, output, session) {
   observeEvent(input$hplc_rawdata, {
     
     # csv_fileにupしたcsvを代入
-    csv_file = reactive(read.csv(input$hplc_rawdata$datapath))
+    csv_file = reactive(read.csv(input$hplc_rawdata$datapath, fileEncoding = "CP932"))
     # rawdataをoutputする
     output$hplc_rawdata = DT::renderDataTable(csv_file(), options = list(pageLength = 100, scrollX = TRUE, scrollY = TRUE, scrollCollapse = TRUE))
 
@@ -13,13 +13,18 @@ server = function(input, output, session) {
     stdPlot <- reactive({
       # 数値型以外が含まれるか検証
       validate(
-        need(validate_numeric(data = csv_file()), paste0(not_numeric_colname(data = csv_file()), "列が数値型でないためプロットできません．"))
-      )
+        need(
+          # 数値型以外があればFALSEを返す
+          validate_numeric(data = csv_file()), 
+          # FALSE時に数値型以外の列名を表示
+          paste0("「", not_numeric_colname(data = csv_file()), "」列が数値型でないためプロットを表示できません．"))
+        )
       std_plot(data = csv_file())
-      })
+    })
+    
     output$stdPlot = renderPlot(stdPlot())
 
-    # OKボタンを押したら動く
+    # 計算ボタンを押したら動く
     observeEvent(input$hplc_submit, {
 
       stdConc = input$stdConc
@@ -27,7 +32,18 @@ server = function(input, output, session) {
       extVol = input$extVol
 
       # result_csvに計算後のcsvを代入
-      result_csv = reactive(cal_hplc(data = csv_file(), std_conc = stdConc, Dil = dil, Ext_vol = extVol))
+      result_csv <- reactive({
+              # 数値型以外が含まれるか検証
+      validate(
+        need(
+          # 数値型以外があればFALSEを返す
+          validate_numeric(data = csv_file()), 
+          # FALSE時に数値型以外の列名を表示
+          paste0("「", not_numeric_colname(data = csv_file()), "」列が数値型でないため計算結果を表示できません．"))
+        )
+        cal_hplc(data = csv_file(), std_conc = stdConc, Dil = dil, Ext_vol = extVol)
+      })
+
       # resultタブに結果を表示
       output$hplc_result = DT::renderDataTable(result_csv(), options = list(pageLength = 100, scrollX = TRUE, scrollY = TRUE, scrollCollapse = TRUE))
       

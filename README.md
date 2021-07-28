@@ -42,7 +42,7 @@ runGitHub("Lab_app_2", "tonegawa07")
   - 最終列が秤量値であること
 
 ### カテキン類&カフェインの場合
-| ID | C         | EC        | GC        | EGC       | EGCG      | Caf.      | ECG       | CG        | DW           |
+| サンプルID | C         | EC        | GC        | EGC       | EGCG      | Caf.      | ECG       | CG        | DW           |
 |-------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|--------------|
 | STD-0001 | peak area | peak area | peak area | peak area | peak area | peak area | peak area | peak area |              |
 | STD-0002 | peak area | peak area | peak area | peak area | peak area | peak area | peak area | peak area |              |
@@ -52,7 +52,7 @@ runGitHub("Lab_app_2", "tonegawa07")
 | UNK-0003 | peak area | peak area | peak area | peak area | peak area | peak area | peak area | peak area | start weight |
 
 ### FAAsの場合
-| ID    | Asp             | Glu             | Asn             | Ser             | Gln             | IS              | Arg             | Ala             | Thea            | GABA            | DW           |
+| サンプルID    | Asp             | Glu             | Asn             | Ser             | Gln             | IS              | Arg             | Ala             | Thea            | GABA            | DW           |
 |----------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|--------------|
 | STD-0001 | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio |              |
 | STD-0002 | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio | peak area ratio |              |
