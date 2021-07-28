@@ -1,5 +1,5 @@
 # Lab App 2
-### App that improve work efficiency in the Lab.
+
 ### Labでの作業効率を向上させるアプリケーション
 ### 目次
 - [起動方法](#anchor1)
