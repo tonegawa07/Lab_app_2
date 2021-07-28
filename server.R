@@ -10,7 +10,13 @@ server = function(input, output, session) {
     output$hplc_rawdata = DT::renderDataTable(csv_file(), options = list(pageLength = 100, scrollX = TRUE, scrollY = TRUE, scrollCollapse = TRUE))
 
     # upしたcsvからstdをplot
-    stdPlot = reactive(std_plot(data = csv_file()))
+    stdPlot <- reactive({
+      # 数値型以外が含まれるか検証
+      validate(
+        need(validate_numeric(data = csv_file()), paste0(not_numeric_colname(data = csv_file()), "列が数値型でないためプロットできません．"))
+      )
+      std_plot(data = csv_file())
+      })
     output$stdPlot = renderPlot(stdPlot())
 
     # OKボタンを押したら動く

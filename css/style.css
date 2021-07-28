@@ -4,3 +4,8 @@ footer {
   bottom: 0;
   position: fixed;
 }
+
+/* エラーメッセージ */
+.shiny-output-error-validation {
+  color: red;
+}
