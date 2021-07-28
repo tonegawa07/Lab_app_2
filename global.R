@@ -5,6 +5,7 @@ library(shiny)
 library(shinydashboard)
 library(tidyverse)
 library(DT)
+library(markdown)
 
 # function
 source("./function/cal_hplc.R", local = TRUE)
