@@ -16,9 +16,8 @@ shinyUI(
                       ),
           tabItem(tabName = "information",
             box(
-              title = "Lab App 2 について",
-              tags$p("詳細は以下のリンクに記載されています"),
-              tags$a(href = "https://github.com/tonegawa07/Lab_app_2/blob/master/README.md", "詳細", target="_blank", rel="noopener")
+              status = "warning", 
+              includeMarkdown("README.md")
               )
           )
         )
