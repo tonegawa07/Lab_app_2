@@ -1,0 +1,1 @@
+git describe --tag > version.txt

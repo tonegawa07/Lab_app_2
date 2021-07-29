@@ -5,7 +5,8 @@ shinyUI(
       dashboardSidebar(
         sidebarMenu(
         menuItem("HPLC計算ツール", tabName = "cal_hplc"),
-        menuItem("Lab App 2 について", tabName = "information")
+        menuItem("Lab App 2 について", tabName = "information"),
+        menuItem("バージョン情報", tabName = "version")
         )
       ),
       dashboardBody(
@@ -19,6 +20,14 @@ shinyUI(
               status = "warning", 
               includeMarkdown("README.md")
               )
+          ),
+          tabItem(tabName = "version",
+            infoBox(
+              "",
+              includeText("version.txt"),
+              color = "yellow",
+              icon = icon("info-sign", lib = "glyphicon")
+            )
           )
         )
 
