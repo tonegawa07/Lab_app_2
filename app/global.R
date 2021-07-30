@@ -1,5 +1,5 @@
 # install packages
-source("./init.R")
+# source("./init.R")
 
 library(shiny)
 library(shinydashboard)

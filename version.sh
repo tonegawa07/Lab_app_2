@@ -1,1 +1,1 @@
-git describe --abbrev=0 --tag > version.txt
+git describe --abbrev=0 --tag > ./app/version.txt
