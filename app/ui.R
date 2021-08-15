@@ -18,7 +18,7 @@ shinyUI(
           tabItem(tabName = "information",
             box(
               status = "warning", 
-              includeMarkdown("README.md")
+              includeMarkdown("./README.md")
               )
           ),
           tabItem(tabName = "version",
