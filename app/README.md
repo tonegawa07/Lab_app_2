@@ -17,7 +17,7 @@ https://lab-app2.herokuapp.com/
 
 ```R
 library(shiny)
-runGitHub("Lab_app_2", "tonegawa07")
+runGitHub("Lab_app_2", "tonegawa07", subdir="./app/")
 ```
 
 <a id="anchor2"></a>
